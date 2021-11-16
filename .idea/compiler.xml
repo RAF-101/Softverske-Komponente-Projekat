@@ -6,11 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Console" />
         <module name="Drive" />
+        <module name="Local" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Console" target="1.5" />
       <module name="Drive" target="1.5" />
+      <module name="Local" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
