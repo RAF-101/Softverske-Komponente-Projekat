@@ -7,6 +7,7 @@ public interface Specifikacija {
     int connectStorage(String Path); // check if existing, update config.occupied
     int initStorage(String Path); // create config and folder
     int promptInitStorage(String Path); // ask if they want to create a storage
+    int initConfig(); // create a config file in the working dir
     int createUser(String Username, String Password, int Permission);
     int requestLogin(); // request credntials upon accessing
     int requestNewUser(); // create new user upon init

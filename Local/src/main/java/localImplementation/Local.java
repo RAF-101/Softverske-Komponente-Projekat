@@ -1,6 +1,10 @@
 package localImplementation;
 
+import org.json.simple.JSONObject;
+
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -9,14 +13,20 @@ import java.util.Scanner;
 
 public class Local implements Specifikacija {
 
+    Path workingDir = null;
 
 
     public Local(){
     }
 
     public int initStorage(String Path) {
-
-        return 0;
+        try {
+            Files.createDirectory(java.nio.file.Path.of(Path));
+            workingDir = java.nio.file.Path.of(Path);
+            return initConfig();
+        } catch (IOException e) {
+            return 401;
+        }
     }
 
     public int promptInitStorage(String Path) {
@@ -29,6 +39,23 @@ public class Local implements Specifikacija {
         }else{
             return 1; // error, not found
         }
+    }
+
+    @Override
+    public int initConfig() {
+        try {
+
+            JSONObject config = new JSONObject();
+
+            config.put("occupied","false"); // dodati ownera
+            FileWriter file = new FileWriter( workingDir + "config.json" );
+            file.write(config.toJSONString());
+            file.close();
+
+        } catch (IOException e) {
+            return 401;
+        }
+        return 0;
     }
 
     public int connectStorage(String Path) {
