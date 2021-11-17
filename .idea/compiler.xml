@@ -14,7 +14,7 @@
     <bytecodeTargetLevel>
       <module name="Console" target="1.5" />
       <module name="Drive" target="1.5" />
-      <module name="Local" target="1.5" />
+      <module name="Local" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

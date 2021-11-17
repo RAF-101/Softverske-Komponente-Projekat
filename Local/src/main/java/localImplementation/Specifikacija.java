@@ -1,9 +1,12 @@
+package localImplementation;
+
 import java.util.List;
 
 public interface Specifikacija {
     //inicijalizacija
-    int initStorage(String Path); // create config and folder
     int connectStorage(String Path); // check if existing, update config.occupied
+    int initStorage(String Path); // create config and folder
+    int promptInitStorage(String Path); // ask if they want to create a storage
     int createUser(String Username, String Password, int Permission);
     int requestLogin(); // request credntials upon accessing
     int requestNewUser(); // create new user upon init
